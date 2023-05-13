@@ -2,13 +2,25 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const persons = [];
+const persons = [{
+  "id": 5123,
+  "name": "Ammar Mohamed",
+  "age": 21,
+  "gender": "male",
+  "email": "	ammarmora@gmail.com"
+}, {
+  "id": 5431,
+  "name": "Sally Ahmed",
+  "age": 20,
+  "gender": "female",
+  "email": "	sally@gmail.com"
+}];
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/persons', (req, res) => {
-  res.status(200).json(persons);
+  res.json(persons);
 });
 
 app.post('/persons', (req, res) => {
@@ -64,5 +76,5 @@ app.delete('/persons/:id', (req, res) => {
 });
 
 app.listen(8888, () => {
-  console.log(`App listening at http://localhost:8888`);
+  console.log(`App listening at http://localhost:3000`);
 });
